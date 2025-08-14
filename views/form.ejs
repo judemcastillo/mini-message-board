@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title><%= title %></title>
+	</head>
+	<body>
+		<h1><%= title %></h1>
+		<form action="/new" method="POST">
+			<label for="user"
+				>Your Name:
+				<input
+					type="text"
+					id="user"
+					name="messageUser"
+					value="<%= messageUser||'' %>"
+					required
+			/></label>
+
+			<label for="text"
+				>Message:
+				<textarea
+					id="text"
+					name="messageText"
+					value="<%= messageText || '' %>"
+					required
+				></textarea>
+			</label>
+
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>

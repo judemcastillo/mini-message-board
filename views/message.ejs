@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <p><a href="/">← Back</a></p>
+    <h1>Message #<%= id+1 %></h1>
+
+    <p><strong>From:</strong> <%= message.user %></p>
+    <p><strong>Text:</strong> <%= message.text %></p>
+    <p><strong>Added:</strong> <%= message.added.toLocaleString() %></p>
+  </body>
+</html>
