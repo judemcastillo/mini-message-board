@@ -12,9 +12,9 @@
 		<ul>
 			<% messages.forEach((m, idx) => { %>
 			<li>
-				<strong><%= m.user %>:</strong>-"<%= m.text %>"
+				<strong><%= m.username %>:</strong>-"<%= m.text %>"
 				<small> on <%= m.added.toLocaleString() %></small>
-				[ <a href="/message/<%= idx %>">open</a> ]
+				[ <a href="/message/<%= m.id %>">open</a> ]
 			</li>
 			<% }) %>
 		</ul>
