@@ -7,16 +7,34 @@
 		<link rel="stylesheet" href="/styles.css" />
 	</head>
 	<body>
-		<h1><%= title %></h1>
-		<p><a href="/new">Write a new message</a></p>
-		<ul>
-			<% messages.forEach((m, idx) => { %>
-			<li>
-				<strong><%= m.username %>:</strong>-"<%= m.text %>"
-				<small> on <%= m.added.toLocaleString() %></small>
-				[ <a href="/message/<%= m.id %>">open</a> ]
-			</li>
-			<% }) %>
-		</ul>
+		<div class="container">
+			<h1><%= title %></h1>
+			<nav>
+				<p><a href="/new">Write a new message</a></p>
+				<p><a href="/search">Search messages</a></p>
+			</nav>
+			<ul class="messageList">
+				<% messages.forEach((m, idx) => { %>
+				<li>
+					<div><strong><%= m.username %></strong> says:</div>
+					<hr />
+					<span> "<%= m.text %>"</span>
+					<hr />
+					<div>
+						<small> on <%= m.added.toLocaleString() %></small> [
+						<a href="/message/<%= m.id %>">Edit</a> ]
+						<form
+							action="/message/<%= m.id %>/delete"
+							method="post"
+							style="display: inline"
+							onsubmit="return confirm('Delete this message?');"
+						>
+							<button type="submit">delete</button>
+						</form>
+					</div>
+				</li>
+				<% }) %>
+			</ul>
+		</div>
 	</body>
 </html>

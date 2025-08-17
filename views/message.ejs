@@ -6,11 +6,45 @@
 		<link rel="stylesheet" href="/styles.css" />
 	</head>
 	<body>
-		<p><a href="/">← Back</a></p>
-		<h1>Message #<%= id %></h1>
+		<div class="container">
+			<div>
+				<h1>Edit Message #<%= id %></h1>
+				<p><a href="/">← Back</a></p>
+			</div>
 
-		<p><strong>From:</strong> <%= message.user %></p>
-		<p><strong>Text:</strong> <%= message.text %></p>
-		<p><strong>Added:</strong> <%= message.added.toLocaleString() %></p>
+			<form
+				method="post"
+				action="/message/<%= message.id %>"
+				class="messageForm"
+			>
+				<div class="formGroup">
+					<label for="user"
+						><strong>Name:</strong>
+						<input
+							type="text"
+							id="user"
+							name="messageUser"
+							value="<%= message.username %>"
+							required
+					/></label>
+
+					<label for="text" class="messageInput"
+						><strong>Message:</strong>
+						<textarea
+							id="text"
+							name="messageText"
+							value="<%= message.text %>"
+							required
+						>
+<%= message.text %></textarea
+						>
+					</label>
+				</div>
+				<div>
+					<button type="submit">Save</button>
+					<a href="/">Cancel</a>
+				</div>
+			</form>
+		</div>
 	</body>
 </html>

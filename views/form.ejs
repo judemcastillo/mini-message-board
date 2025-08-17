@@ -4,33 +4,36 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title><%= title %></title>
-        <link rel="stylesheet" href="/styles.css">
+		<link rel="stylesheet" href="/styles.css" />
 	</head>
 	<body>
-		<h1><%= title %></h1>
-		<form action="/new" method="POST">
-			<label for="user"
-				>Your Name:
-				<input
-					type="text"
-					id="user"
-					name="messageUser"
-					value="<%= messageUser||'' %>"
-					required
-			/></label>
+		<div class="container">
+			<h1><%= title %></h1>
+			<a href="/">back to menu</a>
+			<form action="/new" method="POST" class="messageForm">
+				<div class="formGroup">
+					<label for="user"
+						><strong>Your Name:</strong>
+						<input
+							type="text"
+							id="user"
+							name="messageUser"
+							value="<%= messageUser||'' %>"
+							required
+					/></label>
 
-			<label for="text"
-				>Message:
-				<textarea
-					id="text"
-					name="messageText"
-					value="<%= messageText || '' %>"
-					required
-				></textarea>
-			</label>
-
-			<button type="submit">Submit</button>
-		</form>
-		<a href="/">back to menu</a>
+					<label for="text" class="messageInput"
+						><strong>Message:</strong>
+						<textarea
+							id="text"
+							name="messageText"
+							value="<%= messageText || '' %>"
+							required
+						></textarea>
+					</label>
+				</div>
+				<button type="submit">Submit</button>
+			</form>
+		</div>
 	</body>
 </html>
